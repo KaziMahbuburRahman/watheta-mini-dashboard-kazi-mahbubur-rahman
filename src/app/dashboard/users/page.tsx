@@ -1,7 +1,7 @@
 "use client";
 import StateCard from "@/components/StateCard";
 import { motion } from "framer-motion";
-import { RotateCcw, UserCheck, UserIcon } from "lucide-react";
+import { Edit, RotateCcw, Trash2, UserCheck, UserIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const UsersPage = () => {
@@ -94,16 +94,21 @@ const UsersPage = () => {
             <table className="min-w-full">
               <thead>
                 <tr>
-                  {["Name", "Email", "Phone Number", "Country", "Actions"].map(
-                    (header) => (
-                      <th
-                        key={header}
-                        className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wide hidden sm:table-cell"
-                      >
-                        {header}
-                      </th>
-                    )
-                  )}
+                  <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wide hidden sm:table-cell">
+                    Name
+                  </th>
+                  <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wide hidden sm:table-cell">
+                    Email
+                  </th>
+                  <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wide hidden sm:table-cell">
+                    Phone Number
+                  </th>
+                  <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wide hidden sm:table-cell">
+                    Country
+                  </th>
+                  <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wide hidden sm:table-cell">
+                    Actions
+                  </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-border">
@@ -150,11 +155,11 @@ const UsersPage = () => {
                             <div className="text-sm font-medium text-foreground">
                               {client.name}
                             </div>
-                            <div className="text-sm text-muted-foreground">
-                              {client.email}
-                            </div>
                           </div>
                         </div>
+                      </td>
+                      <td className="hidden sm:table-cell px-6 py-4 whitespace-nowrap text-sm text-muted-foreground">
+                        {client.email}
                       </td>
                       <td className="hidden sm:table-cell px-6 py-4 whitespace-nowrap text-sm text-muted-foreground">
                         {client.phoneNumber}
@@ -163,18 +168,20 @@ const UsersPage = () => {
                         {client.country}
                       </td>
                       <td className="hidden sm:table-cell px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <a
-                          href="#"
-                          className="text-primary hover:text-primary/80 transition duration-200"
-                        >
-                          Edit
-                        </a>
-                        <a
-                          href="#"
-                          className="ml-4 text-destructive hover:text-destructive/80 transition duration-200"
-                        >
-                          Delete
-                        </a>
+                        <div className="flex items-center justify-end gap-3">
+                          <button
+                            className="text-primary hover:text-primary/80 transition duration-200 p-1 rounded hover:bg-primary/10"
+                            title="Edit client"
+                          >
+                            <Edit className="h-4 w-4" />
+                          </button>
+                          <button
+                            className="text-destructive hover:text-destructive/80 transition duration-200 p-1 rounded hover:bg-destructive/10"
+                            title="Delete client"
+                          >
+                            <Trash2 className="h-4 w-4" />
+                          </button>
+                        </div>
                       </td>
                     </motion.tr>
                   ))
