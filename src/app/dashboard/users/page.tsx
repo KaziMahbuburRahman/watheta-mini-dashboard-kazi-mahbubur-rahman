@@ -181,16 +181,16 @@ const UsersPage = () => {
                       <td className="hidden sm:table-cell px-6 py-4 whitespace-nowrap text-sm text-muted-foreground">
                         {client.country}
                       </td>
-                      <td className="hidden sm:table-cell px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <div className="flex items-center justify-end gap-3">
+                      <td className="hidden sm:table-cell px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
+                        <div className="flex items-center justify-start gap-2">
                           <button
-                            className="text-primary hover:text-primary/80 transition duration-200 p-1 rounded hover:bg-primary/10"
+                            className="text-primary hover:text-primary/80 transition duration-200 p-2 rounded hover:bg-primary/10"
                             title="Edit client"
                           >
                             <Edit className="h-4 w-4" />
                           </button>
                           <button
-                            className="text-destructive hover:text-destructive/80 transition duration-200 p-1 rounded hover:bg-destructive/10"
+                            className="text-destructive hover:text-destructive/80 transition duration-200 p-2 rounded hover:bg-destructive/10"
                             title="Delete client"
                           >
                             <Trash2 className="h-4 w-4" />
