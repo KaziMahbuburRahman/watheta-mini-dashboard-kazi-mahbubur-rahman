@@ -71,7 +71,7 @@ export default function ProductsPage() {
           name="Total Revenue"
           icon={DollarSign}
           value={`$${products
-            .reduce((sum, p) => sum + p.price * p.sales, 0)
+            .reduce((sum, p) => sum + p.price * Math.floor(p.stock * 0.3), 0)
             .toLocaleString()}`}
           description="+15.3% from last month"
           trend="up"
