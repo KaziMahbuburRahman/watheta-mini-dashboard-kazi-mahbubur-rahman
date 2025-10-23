@@ -134,14 +134,19 @@ export function DataTable<TData, TValue>({
         </div>
       </div>
       <div className="rounded-md border overflow-hidden">
-        <div className="overflow-x-auto">
-          <Table>
+        <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 table-container">
+          <Table className="min-w-full">
             <TableHeader>
               {table.getHeaderGroups().map((headerGroup) => (
                 <TableRow key={headerGroup.id}>
                   {headerGroup.headers.map((header) => {
                     return (
-                      <TableHead key={header.id} className="whitespace-nowrap">
+                      <TableHead
+                        key={header.id}
+                        className={`whitespace-nowrap px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider ${
+                          header.column.columnDef.meta?.className || ""
+                        }`}
+                      >
                         {header.isPlaceholder
                           ? null
                           : flexRender(
@@ -161,9 +166,15 @@ export function DataTable<TData, TValue>({
                     <TableRow
                       key={row.id}
                       data-state={row.getIsSelected() && "selected"}
+                      className="hover:bg-gray-50 dark:hover:bg-gray-800"
                     >
                       {row.getVisibleCells().map((cell) => (
-                        <TableCell key={cell.id} className="whitespace-nowrap">
+                        <TableCell
+                          key={cell.id}
+                          className={`whitespace-nowrap px-2 py-3 text-sm ${
+                            cell.column.columnDef.meta?.className || ""
+                          }`}
+                        >
                           {flexRender(
                             cell.column.columnDef.cell,
                             cell.getContext()

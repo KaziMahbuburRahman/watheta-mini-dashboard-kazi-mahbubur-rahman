@@ -37,6 +37,9 @@ export const productColumns: ColumnDef<Product>[] = [
     ),
     enableSorting: false,
     enableHiding: false,
+    meta: {
+      className: "hidden sm:table-cell",
+    },
   },
   {
     accessorKey: "name",
@@ -44,15 +47,15 @@ export const productColumns: ColumnDef<Product>[] = [
     cell: ({ row }) => {
       const product = row.original;
       return (
-        <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center">
+        <div className="flex items-center space-x-3 min-w-[200px]">
+          <div className="w-8 h-8 sm:w-10 sm:h-10 bg-muted rounded-lg flex items-center justify-center flex-shrink-0">
             <span className="text-xs font-medium">
               {product.name.charAt(0)}
             </span>
           </div>
-          <div>
-            <div className="font-medium">{product.name}</div>
-            <div className="text-sm text-muted-foreground">
+          <div className="min-w-0 flex-1">
+            <div className="font-medium truncate">{product.name}</div>
+            <div className="text-sm text-muted-foreground hidden sm:block">
               {product.description?.substring(0, 50)}...
             </div>
           </div>
@@ -66,6 +69,9 @@ export const productColumns: ColumnDef<Product>[] = [
     cell: ({ row }) => (
       <span className="font-mono text-sm">{row.getValue("sku")}</span>
     ),
+    meta: {
+      className: "hidden md:table-cell",
+    },
   },
   {
     accessorKey: "category",
@@ -73,6 +79,9 @@ export const productColumns: ColumnDef<Product>[] = [
     cell: ({ row }) => (
       <Badge variant="outline">{row.getValue("category")}</Badge>
     ),
+    meta: {
+      className: "hidden lg:table-cell",
+    },
   },
   {
     accessorKey: "price",
@@ -108,7 +117,12 @@ export const productColumns: ColumnDef<Product>[] = [
       return (
         <div className="flex items-center space-x-2">
           <span className={`font-medium ${getStockColor(stock)}`}>{stock}</span>
-          <Badge variant={stockStatus.variant}>{stockStatus.label}</Badge>
+          <Badge
+            variant={stockStatus.variant}
+            className="hidden sm:inline-flex"
+          >
+            {stockStatus.label}
+          </Badge>
         </div>
       );
     },
@@ -139,6 +153,9 @@ export const productColumns: ColumnDef<Product>[] = [
           <SalesSparkline data={salesData} color="#10b981" height={30} />
         </div>
       );
+    },
+    meta: {
+      className: "hidden xl:table-cell",
     },
   },
   {

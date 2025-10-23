@@ -95,18 +95,20 @@ export default function ProductsPage() {
           <CardTitle>Product List</CardTitle>
           <CardDescription>View and manage all your products</CardDescription>
         </CardHeader>
-        <CardContent>
-          <DataTable
-            columns={productColumns}
-            data={products}
-            searchKey="name"
-            searchPlaceholder="Search products..."
-            enableRowSelection={true}
-            enableColumnVisibility={true}
-            enableSorting={true}
-            enablePagination={true}
-            pageSize={10}
-          />
+        <CardContent className="p-0 sm:p-6">
+          <div className="overflow-hidden">
+            <DataTable
+              columns={productColumns}
+              data={products}
+              searchKey="name"
+              searchPlaceholder="Search products..."
+              enableRowSelection={true}
+              enableColumnVisibility={true}
+              enableSorting={true}
+              enablePagination={true}
+              pageSize={10}
+            />
+          </div>
         </CardContent>
       </Card>
     </div>
