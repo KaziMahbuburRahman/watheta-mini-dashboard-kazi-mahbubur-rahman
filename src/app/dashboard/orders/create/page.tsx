@@ -250,7 +250,10 @@ export default function CreateOrderPage() {
                     <Select
                       value={watch("paymentStatus")}
                       onValueChange={(value) =>
-                        setValue("paymentStatus", value as any)
+                        setValue(
+                          "paymentStatus",
+                          value as "paid" | "pending" | "refunded"
+                        )
                       }
                     >
                       <SelectTrigger>
@@ -271,7 +274,14 @@ export default function CreateOrderPage() {
                     <Select
                       value={watch("deliveryStatus")}
                       onValueChange={(value) =>
-                        setValue("deliveryStatus", value as any)
+                        setValue(
+                          "deliveryStatus",
+                          value as
+                            | "pending"
+                            | "shipped"
+                            | "delivered"
+                            | "canceled"
+                        )
                       }
                     >
                       <SelectTrigger>

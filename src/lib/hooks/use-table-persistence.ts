@@ -5,7 +5,7 @@ import { useLocalStorage } from "./use-local-storage";
 interface TableState {
   columnVisibility: Record<string, boolean>;
   sorting: Array<{ id: string; desc: boolean }>;
-  filters: Record<string, any>;
+  filters: Record<string, unknown>;
   pageSize: number;
 }
 
@@ -37,7 +37,7 @@ export function useTablePersistence(tableId: string) {
     }));
   };
 
-  const updateFilters = (filters: Record<string, any>) => {
+  const updateFilters = (filters: Record<string, unknown>) => {
     setTableState((prev) => ({
       ...prev,
       filters,

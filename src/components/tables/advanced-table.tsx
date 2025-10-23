@@ -195,7 +195,14 @@ export function DataTable<TData, TValue>({
                                   </h5>
                                   <div className="space-y-2">
                                     {row.original.products?.map(
-                                      (product: any, index: number) => (
+                                      (
+                                        product: {
+                                          productName: string;
+                                          price: number;
+                                          quantity: number;
+                                        },
+                                        index: number
+                                      ) => (
                                         <div
                                           key={index}
                                           className="flex items-center justify-between p-2 bg-background rounded"
@@ -282,7 +289,13 @@ export function DataTable<TData, TValue>({
 }
 
 // Utility function to create sortable column header
-export function createSortableHeader(header: string, column: any) {
+export function createSortableHeader(
+  header: string,
+  column: {
+    toggleSorting: (desc?: boolean) => void;
+    getIsSorted: () => false | "asc" | "desc";
+  }
+) {
   return (
     <Button
       variant="ghost"
@@ -296,7 +309,13 @@ export function createSortableHeader(header: string, column: any) {
 }
 
 // Utility function to create selectable row
-export function createSelectableRow<TData>(row: any, table: any) {
+export function createSelectableRow<TData>(
+  row: {
+    getIsSelected: () => boolean;
+    toggleSelected: (value: boolean) => void;
+  },
+  table: unknown
+) {
   return (
     <Checkbox
       checked={row.getIsSelected()}

@@ -14,9 +14,19 @@ import {
   YAxis,
 } from "recharts";
 
+interface ChartDataPoint {
+  month?: string;
+  sales?: number;
+  orders?: number;
+  name?: string;
+  value?: number;
+  color?: string;
+  status?: string;
+}
+
 interface OverviewChartsProps {
-  ordersData: any[];
-  productsData: any[];
+  ordersData: ChartDataPoint[];
+  productsData: ChartDataPoint[];
 }
 
 export function OverviewCharts({
