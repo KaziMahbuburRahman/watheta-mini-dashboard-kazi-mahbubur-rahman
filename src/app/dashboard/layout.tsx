@@ -17,6 +17,7 @@ import {
   LogOut,
   Menu,
   Moon,
+  Package,
   Package2,
   ShoppingCart,
   Sun,
@@ -40,7 +41,7 @@ const navigation = [
   {
     name: "Products",
     href: "/dashboard/products",
-    icon: Package2,
+    icon: Package,
   },
   {
     name: "Orders",
