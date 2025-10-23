@@ -1,5 +1,6 @@
 "use client";
 
+import StateCard from "@/components/StateCard";
 import { DataTable } from "@/components/tables/advanced-table";
 import { productColumns } from "@/components/tables/products-table";
 import { Button } from "@/components/ui/button";
@@ -12,7 +13,14 @@ import {
 } from "@/components/ui/card";
 import { mockProducts } from "@/lib/mock-data/products";
 import { Product } from "@/lib/types";
-import { Plus } from "lucide-react";
+import { motion } from "framer-motion";
+import {
+  ChartBarStacked,
+  DollarSign,
+  Plus,
+  ShoppingBag,
+  SquareActivity,
+} from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -37,50 +45,47 @@ export default function ProductsPage() {
       </div>
 
       {/* Stats Cards */}
-      <div className="grid gap-4 md:grid-cols-4">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">
-              Total Products
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{products.length}</div>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">
-              Active Products
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">
-              {products.filter((p) => p.active).length}
-            </div>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Low Stock</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">
-              {products.filter((p) => p.stock < 10).length}
-            </div>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Out of Stock</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">
-              {products.filter((p) => p.stock === 0).length}
-            </div>
-          </CardContent>
-        </Card>
-      </div>
+      <motion.div
+        className="grid gap-4 md:grid-cols-4"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3, duration: 0.5 }}
+      >
+        <StateCard
+          name="Total Products"
+          icon={ShoppingBag}
+          value={products.length}
+          description="+12.5% from last month"
+          trend="up"
+          trendValue="12.5%"
+        />
+        <StateCard
+          name="Total Stock"
+          icon={SquareActivity}
+          value={products.reduce((sum, p) => sum + p.stock, 0)}
+          description="+8.2% from last month"
+          trend="up"
+          trendValue="8.2%"
+        />
+        <StateCard
+          name="Total Revenue"
+          icon={DollarSign}
+          value={`$${products
+            .reduce((sum, p) => sum + p.price * p.sales, 0)
+            .toLocaleString()}`}
+          description="+15.3% from last month"
+          trend="up"
+          trendValue="15.3%"
+        />
+        <StateCard
+          name="Categories"
+          icon={ChartBarStacked}
+          value={new Set(products.map((p) => p.category)).size}
+          description="+2.1% from last month"
+          trend="up"
+          trendValue="2.1%"
+        />
+      </motion.div>
 
       {/* Products Table */}
       <Card>

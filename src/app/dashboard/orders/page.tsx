@@ -1,6 +1,7 @@
 "use client";
 
 import { OverviewCharts } from "@/components/charts/overview-charts";
+import StateCard from "@/components/StateCard";
 import { DataTable } from "@/components/tables/advanced-table";
 import { orderColumns } from "@/components/tables/orders-table";
 import { Button } from "@/components/ui/button";
@@ -13,6 +14,7 @@ import {
 } from "@/components/ui/card";
 import { mockOrders } from "@/lib/mock-data/orders";
 import { Order } from "@/lib/types";
+import { motion } from "framer-motion";
 import { CheckCircle, Package, Plus, Smile, Truck } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
@@ -48,49 +50,47 @@ export default function OrdersPage() {
       </div>
 
       {/* Stats Cards */}
-      <div className="grid gap-4 md:grid-cols-4">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Orders</CardTitle>
-            <Package className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{totalOrders}</div>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Delivered</CardTitle>
-            <CheckCircle className="h-4 w-4 text-green-500" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{deliveredOrders}</div>
-            <p className="text-xs text-muted-foreground">
-              {Math.round((deliveredOrders / totalOrders) * 100)}% of total
-            </p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Pending</CardTitle>
-            <Truck className="h-4 w-4 text-yellow-500" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{pendingOrders}</div>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Satisfaction</CardTitle>
-            <Smile className="h-4 w-4 text-green-500" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">
-              {Math.round(averageSatisfaction * 100)}%
-            </div>
-          </CardContent>
-        </Card>
-      </div>
+      <motion.div
+        className="grid gap-4 md:grid-cols-4"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3, duration: 0.5 }}
+      >
+        <StateCard
+          name="Total Orders"
+          icon={Package}
+          value={totalOrders}
+          description="+18.7% from last month"
+          trend="up"
+          trendValue="18.7%"
+        />
+        <StateCard
+          name="Delivered"
+          icon={CheckCircle}
+          value={deliveredOrders}
+          description={`${Math.round(
+            (deliveredOrders / totalOrders) * 100
+          )}% of total`}
+          trend="up"
+          trendValue="12.3%"
+        />
+        <StateCard
+          name="Pending"
+          icon={Truck}
+          value={pendingOrders}
+          description="+5.2% from last month"
+          trend="up"
+          trendValue="5.2%"
+        />
+        <StateCard
+          name="Satisfaction"
+          icon={Smile}
+          value={`${Math.round(averageSatisfaction * 100)}%`}
+          description="+8.9% from last month"
+          trend="up"
+          trendValue="8.9%"
+        />
+      </motion.div>
 
       {/* Overview Charts */}
       <OverviewCharts ordersData={orders} productsData={[]} />

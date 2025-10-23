@@ -20,7 +20,9 @@ import {
   Package2,
   ShoppingCart,
   Sun,
+  TrendingUp,
   User,
+  Users,
   X,
 } from "lucide-react";
 import { useTheme } from "next-themes";
@@ -31,6 +33,11 @@ import { toast } from "sonner";
 
 const navigation = [
   {
+    name: "Dashboard",
+    href: "/dashboard",
+    icon: Package2,
+  },
+  {
     name: "Products",
     href: "/dashboard/products",
     icon: Package2,
@@ -39,6 +46,16 @@ const navigation = [
     name: "Orders",
     href: "/dashboard/orders",
     icon: ShoppingCart,
+  },
+  {
+    name: "Sales",
+    href: "/dashboard/sales",
+    icon: TrendingUp,
+  },
+  {
+    name: "Users",
+    href: "/dashboard/users",
+    icon: Users,
   },
 ];
 
