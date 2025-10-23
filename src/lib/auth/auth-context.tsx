@@ -61,6 +61,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const logout = () => {
     setUser(null);
+    // Clear localStorage immediately
+    if (typeof window !== "undefined") {
+      try {
+        window.localStorage.removeItem("auth-user");
+        // Redirect to login page after clearing state
+        window.location.href = "/login";
+      } catch (error) {
+        console.error("Error clearing localStorage:", error);
+      }
+    }
   };
 
   const value = {
