@@ -43,7 +43,7 @@ const productSchema = z.object({
   price: z.number().min(0.01, "Price must be greater than 0"),
   stock: z.number().min(0, "Stock must be 0 or greater"),
   description: z.string().optional(),
-  active: z.boolean().default(true),
+  active: z.boolean(),
 });
 
 type ProductFormData = z.infer<typeof productSchema>;
