@@ -117,7 +117,9 @@ export default function CreateProductPage() {
           </Link>
         </Button>
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Create Product</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">
+            Create Product
+          </h1>
           <p className="text-muted-foreground">
             Add a new product to your inventory
           </p>
@@ -315,11 +317,20 @@ export default function CreateProductPage() {
           </TabsContent>
         </Tabs>
 
-        <div className="flex justify-end space-x-4">
-          <Button type="button" variant="outline" asChild>
+        <div className="flex flex-col sm:flex-row justify-end space-y-2 sm:space-y-0 sm:space-x-4">
+          <Button
+            type="button"
+            variant="outline"
+            asChild
+            className="w-full sm:w-auto"
+          >
             <Link href="/dashboard/products">Cancel</Link>
           </Button>
-          <Button type="submit" disabled={isSubmitting}>
+          <Button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full sm:w-auto"
+          >
             {isSubmitting ? "Creating..." : "Create Product"}
           </Button>
         </div>
@@ -327,4 +338,3 @@ export default function CreateProductPage() {
     </div>
   );
 }
-

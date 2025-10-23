@@ -118,7 +118,9 @@ export default function CreateOrderPage() {
           </Link>
         </Button>
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Create Order</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">
+            Create Order
+          </h1>
           <p className="text-muted-foreground">
             Create a new order for a customer
           </p>
@@ -139,8 +141,11 @@ export default function CreateOrderPage() {
               </CardHeader>
               <CardContent className="space-y-4">
                 {fields.map((field, index) => (
-                  <div key={field.id} className="flex items-end space-x-4">
-                    <div className="flex-1 space-y-2">
+                  <div
+                    key={field.id}
+                    className="flex flex-col sm:flex-row items-end space-y-4 sm:space-y-0 sm:space-x-4"
+                  >
+                    <div className="flex-1 space-y-2 w-full">
                       <Label>Product</Label>
                       <Select
                         value={watchedProducts[index]?.productId || ""}
@@ -165,7 +170,7 @@ export default function CreateOrderPage() {
                         </p>
                       )}
                     </div>
-                    <div className="w-24 space-y-2">
+                    <div className="w-full sm:w-24 space-y-2">
                       <Label>Quantity</Label>
                       <Input
                         type="number"
@@ -186,6 +191,7 @@ export default function CreateOrderPage() {
                         variant="outline"
                         size="icon"
                         onClick={() => removeProduct(index)}
+                        className="w-full sm:w-auto"
                       >
                         <Trash2 className="h-4 w-4" />
                       </Button>
@@ -300,11 +306,20 @@ export default function CreateOrderPage() {
               </CardContent>
             </Card>
 
-            <div className="flex justify-end space-x-4">
-              <Button type="button" variant="outline" asChild>
+            <div className="flex flex-col sm:flex-row justify-end space-y-2 sm:space-y-0 sm:space-x-4">
+              <Button
+                type="button"
+                variant="outline"
+                asChild
+                className="w-full sm:w-auto"
+              >
                 <Link href="/dashboard/orders">Cancel</Link>
               </Button>
-              <Button type="submit" disabled={isSubmitting}>
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full sm:w-auto"
+              >
                 {isSubmitting ? "Creating..." : "Create Order"}
               </Button>
             </div>
@@ -361,4 +376,3 @@ export default function CreateOrderPage() {
     </div>
   );
 }
-

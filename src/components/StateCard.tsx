@@ -32,7 +32,7 @@ const StateCard: React.FC<StateCardProps> = ({
       transition={{ duration: 0.5 }}
       className="bg-card backdrop-blur-md overflow-hidden shadow-lg rounded-xl border border-border hover:shadow-xl transition-all duration-300"
     >
-      <div className="px-4 py-5 sm:p-6">
+      <div className="px-3 py-4 sm:px-4 sm:py-5 lg:p-6">
         <div className="flex items-center justify-between">
           <span className="flex items-center text-sm font-medium text-muted-foreground">
             <Icon size={20} className="mr-2" />
@@ -59,7 +59,7 @@ const StateCard: React.FC<StateCardProps> = ({
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.3 }}
-          className="mt-1 text-3xl font-semibold text-foreground"
+          className="mt-1 text-2xl sm:text-3xl font-semibold text-foreground"
         >
           {value}
         </motion.p>

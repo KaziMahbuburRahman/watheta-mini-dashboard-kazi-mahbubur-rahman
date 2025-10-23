@@ -49,11 +49,11 @@ export function OverviewCharts({
   ];
 
   return (
-    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <div className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
       {/* Sales Trend Chart */}
-      <div className="rounded-lg border p-6">
-        <h3 className="text-lg font-semibold mb-4">Sales Trend</h3>
-        <ResponsiveContainer width="100%" height={200}>
+      <div className="rounded-lg border p-4 sm:p-6">
+        <h3 className="text-base sm:text-lg font-semibold mb-4">Sales Trend</h3>
+        <ResponsiveContainer width="100%" height={180}>
           <LineChart data={salesData}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="month" />
@@ -70,9 +70,11 @@ export function OverviewCharts({
       </div>
 
       {/* Orders Chart */}
-      <div className="rounded-lg border p-6">
-        <h3 className="text-lg font-semibold mb-4">Orders by Month</h3>
-        <ResponsiveContainer width="100%" height={200}>
+      <div className="rounded-lg border p-4 sm:p-6">
+        <h3 className="text-base sm:text-lg font-semibold mb-4">
+          Orders by Month
+        </h3>
+        <ResponsiveContainer width="100%" height={180}>
           <BarChart data={salesData}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="month" />
@@ -84,9 +86,11 @@ export function OverviewCharts({
       </div>
 
       {/* Category Distribution */}
-      <div className="rounded-lg border p-6">
-        <h3 className="text-lg font-semibold mb-4">Product Categories</h3>
-        <ResponsiveContainer width="100%" height={200}>
+      <div className="rounded-lg border p-4 sm:p-6">
+        <h3 className="text-base sm:text-lg font-semibold mb-4">
+          Product Categories
+        </h3>
+        <ResponsiveContainer width="100%" height={180}>
           <PieChart>
             <Pie
               data={categoryData}
@@ -107,9 +111,11 @@ export function OverviewCharts({
       </div>
 
       {/* Delivery Status */}
-      <div className="rounded-lg border p-6">
-        <h3 className="text-lg font-semibold mb-4">Delivery Status</h3>
-        <ResponsiveContainer width="100%" height={200}>
+      <div className="rounded-lg border p-4 sm:p-6">
+        <h3 className="text-base sm:text-lg font-semibold mb-4">
+          Delivery Status
+        </h3>
+        <ResponsiveContainer width="100%" height={180}>
           <PieChart>
             <Pie
               data={deliveryData}
@@ -130,9 +136,11 @@ export function OverviewCharts({
       </div>
 
       {/* Revenue Chart */}
-      <div className="rounded-lg border p-6">
-        <h3 className="text-lg font-semibold mb-4">Revenue Overview</h3>
-        <ResponsiveContainer width="100%" height={200}>
+      <div className="rounded-lg border p-4 sm:p-6">
+        <h3 className="text-base sm:text-lg font-semibold mb-4">
+          Revenue Overview
+        </h3>
+        <ResponsiveContainer width="100%" height={180}>
           <BarChart data={salesData}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="month" />
@@ -144,8 +152,10 @@ export function OverviewCharts({
       </div>
 
       {/* Customer Satisfaction */}
-      <div className="rounded-lg border p-6">
-        <h3 className="text-lg font-semibold mb-4">Customer Satisfaction</h3>
+      <div className="rounded-lg border p-4 sm:p-6">
+        <h3 className="text-base sm:text-lg font-semibold mb-4">
+          Customer Satisfaction
+        </h3>
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <span className="text-sm">Happy</span>
