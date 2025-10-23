@@ -1,0 +1,123 @@
+import { Order } from "../types";
+
+export const mockOrders: Order[] = [
+  {
+    id: "1",
+    orderId: "ORD-001",
+    products: [
+      {
+        productId: "1",
+        productName: "Wireless Bluetooth Headphones",
+        quantity: 2,
+        price: 99.99,
+      },
+      {
+        productId: "2",
+        productName: "Gaming Mechanical Keyboard",
+        quantity: 1,
+        price: 149.99,
+      },
+    ],
+    clientName: "John Doe",
+    deliveryAddress: "123 Main St, New York, NY 10001",
+    paymentStatus: "paid",
+    deliveryStatus: "delivered",
+    expectedDeliveryDate: "2024-01-25",
+    totalAmount: 349.97,
+    createdAt: "2024-01-20T10:30:00Z",
+    updatedAt: "2024-01-25T14:20:00Z",
+  },
+  {
+    id: "2",
+    orderId: "ORD-002",
+    products: [
+      {
+        productId: "3",
+        productName: "Office Desk Chair",
+        quantity: 1,
+        price: 299.99,
+      },
+    ],
+    clientName: "Jane Smith",
+    deliveryAddress: "456 Oak Ave, Los Angeles, CA 90210",
+    paymentStatus: "pending",
+    deliveryStatus: "shipped",
+    expectedDeliveryDate: "2024-01-28",
+    totalAmount: 299.99,
+    createdAt: "2024-01-21T14:15:00Z",
+    updatedAt: "2024-01-24T09:30:00Z",
+  },
+  {
+    id: "3",
+    orderId: "ORD-003",
+    products: [
+      {
+        productId: "4",
+        productName: "Cotton T-Shirt",
+        quantity: 3,
+        price: 24.99,
+      },
+      {
+        productId: "6",
+        productName: "Yoga Mat",
+        quantity: 1,
+        price: 39.99,
+      },
+    ],
+    clientName: "Mike Johnson",
+    deliveryAddress: "789 Pine St, Chicago, IL 60601",
+    paymentStatus: "paid",
+    deliveryStatus: "pending",
+    expectedDeliveryDate: "2024-01-30",
+    totalAmount: 114.96,
+    createdAt: "2024-01-22T16:45:00Z",
+    updatedAt: "2024-01-22T16:45:00Z",
+  },
+  {
+    id: "4",
+    orderId: "ORD-004",
+    products: [
+      {
+        productId: "7",
+        productName: "Garden Tools Set",
+        quantity: 1,
+        price: 79.99,
+      },
+      {
+        productId: "8",
+        productName: "Car Phone Mount",
+        quantity: 2,
+        price: 19.99,
+      },
+    ],
+    clientName: "Sarah Wilson",
+    deliveryAddress: "321 Elm St, Miami, FL 33101",
+    paymentStatus: "refunded",
+    deliveryStatus: "canceled",
+    expectedDeliveryDate: "2024-01-26",
+    totalAmount: 119.97,
+    createdAt: "2024-01-23T11:20:00Z",
+    updatedAt: "2024-01-24T10:15:00Z",
+  },
+  {
+    id: "5",
+    orderId: "ORD-005",
+    products: [
+      {
+        productId: "1",
+        productName: "Wireless Bluetooth Headphones",
+        quantity: 1,
+        price: 99.99,
+      },
+    ],
+    clientName: "David Brown",
+    deliveryAddress: "654 Maple Dr, Seattle, WA 98101",
+    paymentStatus: "paid",
+    deliveryStatus: "delivered",
+    expectedDeliveryDate: "2024-01-27",
+    totalAmount: 99.99,
+    createdAt: "2024-01-24T08:30:00Z",
+    updatedAt: "2024-01-27T16:45:00Z",
+  },
+];
+

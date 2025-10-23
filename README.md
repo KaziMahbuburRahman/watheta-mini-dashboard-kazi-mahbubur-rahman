@@ -1,36 +1,214 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Watheta Mini Dashboard
 
-## Getting Started
+A modern, responsive mini dashboard built with Next.js 14, featuring product and order management capabilities.
 
-First, run the development server:
+## 🚀 Features
+
+### Product Management
+
+- **Create Products**: Multi-step form with validation
+- **Product List**: Advanced table with filtering, sorting, and search
+- **Stock Management**: Visual stock indicators and status badges
+- **Category Management**: Organized product categorization
+
+### Order Management
+
+- **Create Orders**: Dynamic order creation with product selection
+- **Order List**: Comprehensive order tracking with status indicators
+- **Customer Management**: Client information and delivery tracking
+- **Progress Tracking**: Visual delivery progress indicators
+
+### UI/UX Features
+
+- **Responsive Design**: Mobile-first approach with tablet and desktop optimization
+- **Dark/Light Mode**: Theme switching with system preference detection
+- **Modern UI**: Clean, consistent design using ShadCN UI components
+- **Interactive Elements**: Hover effects, animations, and smooth transitions
+- **Form Validation**: Comprehensive validation with error handling
+- **Toast Notifications**: User feedback for actions
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **UI Library**: ShadCN UI + Radix UI primitives
+- **Styling**: Tailwind CSS
+- **Forms**: React Hook Form + Zod validation
+- **Tables**: TanStack Table (React Table v8)
+- **State Management**: React Query (TanStack Query)
+- **Icons**: Lucide React
+- **Theme**: next-themes
+- **Notifications**: Sonner
+
+## 📦 Installation
+
+1. Clone the repository:
+
+```bash
+git clone <repository-url>
+cd watheta-dashboard
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🏗️ Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/
+│   ├── dashboard/
+│   │   ├── layout.tsx          # Dashboard layout with sidebar
+│   │   ├── page.tsx            # Dashboard home
+│   │   ├── products/
+│   │   │   ├── page.tsx        # Product list
+│   │   │   └── create/
+│   │   │       └── page.tsx     # Product creation
+│   │   └── orders/
+│   │       ├── page.tsx        # Order list
+│   │       └── create/
+│   │           └── page.tsx    # Order creation
+│   ├── layout.tsx              # Root layout with theme provider
+│   └── page.tsx                # Home redirect
+├── components/
+│   ├── ui/                     # ShadCN UI components
+│   └── forms/                  # Form components
+├── lib/
+│   ├── types/                  # TypeScript type definitions
+│   ├── mock-data/              # Mock data for development
+│   └── utils.ts                # Utility functions
+```
 
-## Learn More
+## 🎨 Design Decisions
 
-To learn more about Next.js, take a look at the following resources:
+### UI/UX Approach
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Mobile-First**: Responsive design starting from mobile screens
+- **Consistent Spacing**: Using Tailwind's spacing scale for uniformity
+- **Color System**: Semantic color tokens for maintainability
+- **Typography**: Clear hierarchy with appropriate font weights
+- **Interactive States**: Hover, focus, and active states for better UX
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Component Architecture
 
-## Deploy on Vercel
+- **Reusable Components**: ShadCN UI for consistent design system
+- **Form Handling**: React Hook Form for performance and validation
+- **Type Safety**: Full TypeScript implementation
+- **Error Boundaries**: Proper error handling and user feedback
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Performance Optimizations
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Code Splitting**: Next.js automatic code splitting
+- **Image Optimization**: Next.js Image component for optimized loading
+- **Lazy Loading**: Components loaded on demand
+- **Memoization**: React.memo for expensive components
+
+## 📱 Responsive Design
+
+The dashboard is fully responsive across all device sizes:
+
+- **Mobile (< 768px)**: Collapsible sidebar, stacked layouts
+- **Tablet (768px - 1024px)**: Optimized spacing and touch targets
+- **Desktop (> 1024px)**: Full sidebar, multi-column layouts
+
+## 🎯 Key Features Implemented
+
+### Product Management
+
+- ✅ Multi-step product creation form
+- ✅ Advanced product listing with filters
+- ✅ Stock status indicators
+- ✅ Category-based organization
+- ✅ Image upload with preview
+- ✅ Form validation with error messages
+
+### Order Management
+
+- ✅ Dynamic order creation with product selection
+- ✅ Real-time total calculation
+- ✅ Customer information management
+- ✅ Order status tracking
+- ✅ Delivery progress indicators
+- ✅ Payment status management
+
+### Advanced Table Features
+
+- ✅ Sorting and filtering
+- ✅ Search functionality
+- ✅ Status indicators and badges
+- ✅ Action menus
+- ✅ Responsive design
+- ✅ Pagination support
+
+## 🚀 Deployment
+
+The application is ready for deployment on Vercel:
+
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Deploy with zero configuration
+
+## 📋 Requirements Met
+
+### Technical Requirements ✅
+
+- Next.js 14+ ✅
+- ShadCN UI + Tailwind CSS ✅
+- React Hook Form + Zod ✅
+- TanStack Query ✅
+- TanStack Table ✅
+- Lucide Icons ✅
+- Responsive Design ✅
+
+### Core Features ✅
+
+- Dashboard Layout ✅
+- Product Create/List ✅
+- Order Create/List ✅
+- Advanced Tables ✅
+- Form Validation ✅
+- Status Indicators ✅
+- Mobile Responsive ✅
+
+### Design Quality ✅
+
+- Modern UI/UX ✅
+- Consistent Design ✅
+- Interactive Elements ✅
+- Loading States ✅
+- Error Handling ✅
+- Accessibility ✅
+
+## 🔧 Development
+
+### Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+
+### Code Quality
+
+- TypeScript for type safety
+- ESLint for code quality
+- Prettier for code formatting
+- Consistent naming conventions
+
+## 📄 License
+
+This project is created for the Watheta Frontend Developer assessment.
+
+---
+
+Built with ❤️ using Next.js, ShadCN UI, and modern web technologies.
