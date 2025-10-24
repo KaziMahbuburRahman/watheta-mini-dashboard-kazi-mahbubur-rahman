@@ -144,7 +144,7 @@ export function DataTable<TData, TValue>({
                       <TableHead
                         key={header.id}
                         className={`whitespace-nowrap px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider ${
-                          header.column.columnDef.meta?.className || ""
+                          (header.column.columnDef.meta as any)?.className || ""
                         }`}
                       >
                         {header.isPlaceholder
@@ -172,7 +172,7 @@ export function DataTable<TData, TValue>({
                         <TableCell
                           key={cell.id}
                           className={`whitespace-nowrap px-2 py-3 text-sm ${
-                            cell.column.columnDef.meta?.className || ""
+                            (cell.column.columnDef.meta as any)?.className || ""
                           }`}
                         >
                           {flexRender(
@@ -194,7 +194,7 @@ export function DataTable<TData, TValue>({
                                     Products
                                   </h5>
                                   <div className="space-y-2">
-                                    {row.original.products?.map(
+                                    {(row.original as any).products?.map(
                                       (
                                         product: {
                                           productName: string;
@@ -226,12 +226,12 @@ export function DataTable<TData, TValue>({
                                   <div className="space-y-1 text-sm">
                                     <p>
                                       <strong>Address:</strong>{" "}
-                                      {row.original.deliveryAddress}
+                                      {(row.original as any).deliveryAddress}
                                     </p>
                                     <p>
                                       <strong>Expected:</strong>{" "}
                                       {new Date(
-                                        row.original.expectedDeliveryDate
+                                        (row.original as any).expectedDeliveryDate
                                       ).toLocaleDateString()}
                                     </p>
                                   </div>

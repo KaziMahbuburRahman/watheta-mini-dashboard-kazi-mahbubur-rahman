@@ -4,8 +4,17 @@ import { motion } from "framer-motion";
 import { Edit, RotateCcw, Trash2, UserCheck, UserIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 
+interface Client {
+  id: number;
+  name: string;
+  email: string;
+  phoneNumber: string;
+  country: string;
+  image?: string;
+}
+
 const UsersPage = () => {
-  const [clients, setClients] = useState([]);
+  const [clients, setClients] = useState<Client[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

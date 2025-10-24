@@ -1,5 +1,6 @@
 "use client";
 
+import { Order, Product } from "@/lib/types";
 import {
   Bar,
   BarChart,
@@ -25,8 +26,8 @@ interface ChartDataPoint {
 }
 
 interface OverviewChartsProps {
-  ordersData: ChartDataPoint[];
-  productsData: ChartDataPoint[];
+  ordersData: Order[];
+  productsData: Product[];
 }
 
 export function OverviewCharts({
