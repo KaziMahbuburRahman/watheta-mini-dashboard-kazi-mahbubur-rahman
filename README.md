@@ -2,6 +2,24 @@
 
 A modern, responsive mini dashboard built with Next.js 16, featuring comprehensive product and order management capabilities with enhanced animations, interactive charts, and beautiful UI components.
 
+## 🔐 Login Details
+
+### Demo Credentials
+
+For testing and demonstration purposes, you can use the following login credentials:
+
+**Email:** `admin@watheta.com`  
+**Password:** `password`
+
+### Access Points
+
+- **Login Page:** [http://localhost:3000/login](http://localhost:3000/login)
+- **Dashboard:** [http://localhost:3000/dashboard](http://localhost:3000/dashboard)
+
+### Security Note
+
+⚠️ **Important:** These are demo credentials for development and testing purposes only. In a production environment, implement proper authentication with secure user management and password policies.
+
 ## 🚀 Features
 
 ### Enhanced Dashboard
@@ -77,34 +95,16 @@ cd watheta-dashboard
 2. Install dependencies:
 
 ```bash
-npm install
+pnpm install
 ```
 
 3. Run the development server:
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-## 🔐 Login Details
-
-### Demo Credentials
-
-For testing and demonstration purposes, you can use the following login credentials:
-
-**Email:** `admin@watheta.com`  
-**Password:** `password`
-
-### Access Points
-
-- **Login Page:** [http://localhost:3000/login](http://localhost:3000/login)
-- **Dashboard:** [http://localhost:3000/dashboard](http://localhost:3000/dashboard)
-
-### Security Note
-
-⚠️ **Important:** These are demo credentials for development and testing purposes only. In a production environment, implement proper authentication with secure user management and password policies.
 
 ## 🏗️ Project Structure
 
@@ -237,10 +237,10 @@ The application is ready for deployment on Vercel:
 
 ### Available Scripts
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
+- `pnpm dev` - Start development server
+- `pnpm build` - Build for production
+- `pnpm start` - Start production server
+- `pnpm lint` - Run ESLint
 
 ### Code Quality
 
